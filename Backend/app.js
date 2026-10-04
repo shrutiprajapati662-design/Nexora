@@ -25,7 +25,10 @@ app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(limiter);
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://nexora-lyart-rho.vercel.app"
+  ],
   credentials: true,
 }));
 app.use(helmet());

@@ -338,7 +338,7 @@ export const forgotPassword = asyncHandler(async (req, res) => {
   await user.save();
 
   // Reset URL
-  const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
+  const resetUrl = `https://nexora-lyart-rho.vercel.app/reset-password/${resetToken}`;
 
   const message = `
 Password Reset Request
