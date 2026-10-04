@@ -1,0 +1,256 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+:root{
+  --primary:#2563eb;
+  --secondary:#06b6d4;
+  --accent:#8b5cf6;
+  --success:#22c55e;
+  --danger:#ef4444;
+
+  --bg:#020617;
+  --surface:#0f172a;
+  --surface-2:#1e293b;
+
+  --text:#f8fafc;
+  --text-light:#cbd5e1;
+
+  --radius:18px;
+}
+
+body.dark-theme{
+  --bg:#020617;
+  --surface:#0f172a;
+  --surface-2:#1e293b;
+  --text:#f8fafc;
+  --text-light:#cbd5e1;
+}
+
+body.light-theme{
+  --bg:#ffffff;
+  --surface:#f8fafc;
+  --surface-2:#e2e8f0;
+  --text:#0f172a;
+  --text-light:#334155;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  transition:background .3s,color .3s;
+}
+
+a{ text-decoration:none; color:inherit; }
+button{ cursor:pointer; border:none; }
+input, textarea, select{ outline:none; border:none; }
+
+::-webkit-scrollbar{ width:8px; }
+::-webkit-scrollbar-thumb{ background:#334155; border-radius:20px; }
+::-webkit-scrollbar-track{ background:#0f172a; }
+
+.glass{
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.container-custom{ width:min(1300px,92%); margin:auto; }
+
+.gradient-text{
+  background:linear-gradient(90deg,#2563eb,#06b6d4,#8b5cf6);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+}
+
+.primary-btn{
+  background:linear-gradient(135deg,#2563eb,#8b5cf6);
+  color:white;
+  padding:.9rem 1.8rem;
+  border-radius:14px;
+  transition:.3s;
+}
+.primary-btn:hover{ transform:translateY(-3px); }
+
+.section{ padding:90px 0; }
+
+.custom-scrollbar::-webkit-scrollbar{ width:6px; }
+.custom-scrollbar::-webkit-scrollbar-track{ background:transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb{ background:#334155; border-radius:20px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover{ background:#3b82f6; }
+
+/* ============================================================
+   LIGHT THEME OVERRIDES — for pages using hardcoded slate classes
+   (Help/About pages don't need this — they use dark: now, handled
+   automatically by the Tailwind darkMode:'class' config above)
+============================================================ */
+
+body.light-theme {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .glass {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+}
+
+/* Solid full-page / large surface backgrounds — plain, no border/shadow */
+body.light-theme .bg-slate-950,
+body.light-theme .bg-slate-900 {
+  background-color: #ffffff !important;
+}
+
+/* Card-like surfaces — get a soft border + shadow */
+body.light-theme .bg-slate-900\/90,
+body.light-theme .bg-slate-900\/80,
+body.light-theme .bg-slate-900\/60,
+body.light-theme .bg-slate-900\/50,
+body.light-theme .bg-slate-800,
+body.light-theme .bg-slate-800\/90,
+body.light-theme .bg-slate-800\/80,
+body.light-theme .bg-slate-800\/60,
+body.light-theme .bg-slate-800\/50,
+body.light-theme .bg-slate-800\/40 {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06) !important;
+}
+
+body.light-theme .bg-slate-900:hover,
+body.light-theme .bg-slate-900\/90:hover,
+body.light-theme .bg-slate-900\/80:hover,
+body.light-theme .bg-slate-900\/60:hover,
+body.light-theme .bg-slate-900\/50:hover,
+body.light-theme .bg-slate-800:hover,
+body.light-theme .bg-slate-800\/90:hover {
+  border-color: #93c5fd !important;
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.12) !important;
+}
+
+body.light-theme .text-white {
+  color: #0f172a !important;
+}
+body.light-theme .text-slate-200,
+body.light-theme .text-slate-300 {
+  color: #334155 !important;
+}
+body.light-theme .text-slate-400,
+body.light-theme .text-slate-500 {
+  color: #64748b !important;
+}
+
+body.light-theme .border-slate-700,
+body.light-theme .border-slate-800,
+body.light-theme .border-slate-800\/80,
+body.light-theme .border-slate-800\/90 {
+  border-color: #e2e8f0 !important;
+}
+
+body.light-theme .hover\:bg-slate-800:hover {
+  background-color: #eff6ff !important;
+  color: #2563eb !important;
+}
+
+body.light-theme ::-webkit-scrollbar-track { background: #f1f5f9; }
+body.light-theme ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+body.light-theme ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+
+/* Native <select> dropdown rendering */
+body.light-theme select,
+body.light-theme select option {
+  color-scheme: light;
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+body.dark-theme select,
+body.dark-theme select option {
+  color-scheme: dark;
+}
+body.light-theme select:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
+}
+
+/* ===== THEME-SAFE FORM FIELDS (used by Input.jsx) ===== */
+.field {
+  width: 100%;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1.5px solid var(--surface-2);
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.field::placeholder {
+  color: var(--text-light);
+  opacity: 0.65;
+}
+.field:focus { border-color: var(--primary); }
+.field:disabled { cursor: not-allowed; opacity: 0.6; }
+
+/* ===== LOGIN / REGISTER PAGE BACKDROPS ===== */
+.login-card{
+  background:linear-gradient(145deg,#0f172a,#0b1120);
+  border:1px solid #1e293b;
+  transition:.3s;
+}
+body.light-theme .login-card{
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  box-shadow:0 20px 40px rgba(15,23,42,.08);
+}
+
+.login-bg{
+  background:
+    radial-gradient(circle at 20% 20%, rgba(37,99,235,.20), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(139,92,246,.18), transparent 30%),
+    linear-gradient(180deg,#020617,#081124,#020617);
+}
+body.light-theme .login-bg{
+  background:
+    radial-gradient(circle at 20% 20%, rgba(37,99,235,.08), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(139,92,246,.08), transparent 30%),
+    linear-gradient(180deg,#f8fafc,#eef6ff,#ffffff);
+}
+
+/* Profile Drawer Hover Fix */
+
+body.light-theme .hover\:bg-slate-800:hover,
+body.light-theme .hover\:bg-slate-800\/60:hover,
+body.light-theme .hover\:bg-slate-900:hover,
+body.light-theme .hover\:bg-slate-900\/60:hover
+{
+    background:#eff6ff !important;
+    color:#2563eb !important;
+}
+
+body.light-theme .group:hover .text-slate-400{
+    color:#2563eb !important;
+}
