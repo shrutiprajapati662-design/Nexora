@@ -4,7 +4,7 @@ function Footer() {
   return (
    <footer className="relative z-10 border-t border-slate-800 bg-transparent backdrop-blur-sm">
 
-      <div className="mx-auto grid max-w-7xl grid-cols-4 gap-10 px-8 py-16">
+     <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-10 px-6 py-12 sm:grid-cols-2 md:grid-cols-4 md:gap-10 md:px-8 md:py-16">
 
         {/* ---------- BRAND ---------- */}
 
